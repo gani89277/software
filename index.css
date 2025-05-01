@@ -1,0 +1,205 @@
+@tailwind  base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-white overflow-x-hidden;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-light;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-black/20 backdrop-blur-md border border-white/10 rounded-xl;
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.05);
+    transition: all 0.3s ease;
+  }
+  
+  .glass:hover {
+    @apply border-white/20;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+  }
+  
+  .heading {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+    background: linear-gradient(to right, #a78bfa, #8b5cf6, #a78bfa);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: shine 8s linear infinite;
+  }
+
+  .subheading {
+    @apply text-xl md:text-2xl font-medium text-white/80;
+  }
+  
+  .btn {
+    @apply px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 text-center;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary hover:bg-primary-dark text-white;
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.2);
+  }
+  
+  .btn-outline {
+    @apply btn border-2 border-primary text-primary hover:bg-primary/10;
+  }
+
+  .animated-bg {
+    @apply fixed top-0 left-0 w-full h-screen -z-10;
+    background: linear-gradient(125deg, #121212 0%, #1a0b2e 30%, #191919 100%);
+  }
+
+  .moving-particle {
+    @apply absolute rounded-full opacity-50 animate-pulse-slow;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, rgba(139, 92, 246, 0) 70%);
+  }
+
+  .section {
+    @apply py-12 sm:py-16 md:py-20 lg:py-24 overflow-hidden relative;
+  }
+  
+  .container {
+    @apply px-4 sm:px-6 mx-auto;
+  }
+  
+  .code-editor {
+    @apply font-mono text-sm;
+    min-height: 300px;
+    counter-reset: line;
+  }
+
+  .code-editor pre {
+    @apply text-white;
+  }
+
+  /* For line numbers in code editor */
+  .code-line {
+    @apply relative pl-12;
+    counter-increment: line;
+  }
+
+  .code-line:before {
+    @apply absolute left-0 text-gray-500 w-8 text-right pr-2;
+    content: counter(line);
+  }
+  
+  /* Responsive grid */
+  .responsive-grid-1 {
+    @apply grid grid-cols-1 gap-6;
+  }
+  
+  .responsive-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-6;
+  }
+  
+  .responsive-grid-3 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  }
+  
+  .responsive-grid-4 {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
+  }
+  
+  /* Flex layouts */
+  .flex-responsive {
+    @apply flex flex-col sm:flex-row;
+  }
+  
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  
+  /* Mobile optimizations */
+  .mobile-p {
+    @apply p-4 sm:p-6 md:p-8;
+  }
+  
+  .mobile-py {
+    @apply py-4 sm:py-6 md:py-8;
+  }
+  
+  .mobile-px {
+    @apply px-4 sm:px-6 md:px-8;
+  }
+  
+  .mobile-scroll {
+    @apply overflow-x-auto scrollbar-hide;
+  }
+  
+  /* Hide scrollbar for the mobile scrollable areas */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  /* Animations */
+  @keyframes shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.8);
+    }
+  }
+  
+  @keyframes rotate-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  
+  .animate-rotate-slow {
+    animation: rotate-slow 15s linear infinite;
+  }
+
+  /* Radial dark gradient for vignettes */
+  .bg-radial-dark {
+    background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  }
+}
+ 
